@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#151e25">
+  <title>连平山河 · 移步游目</title>
+  <link rel="stylesheet" href="style.css?v=taoxiaoying-20260930a">
+  <script src="taoxiaoying.js?v=20260930a" defer></script>
+  <script src="app.js?v=taoxiaoying-20260930c" defer></script>
+</head>
+<body>
+<main class="site" id="site">
+  <section class="atlas-view active" id="atlasView" aria-label="连平全景长卷">
+    <div class="atlas-blur" aria-hidden="true"></div>
+    <div class="atlas-stage" id="atlasStage">
+      <div class="atlas-picture" id="atlasPicture">
+        <img class="atlas-art" id="atlasArt" src="assets/lianping-panorama-moonlit-uhd.webp" alt="连平长卷：九连山、元善滨河城区与连平新城的全景">
+        <div class="atlas-mist" aria-hidden="true"></div>
+        <div class="atlas-water" aria-hidden="true"></div>
+        <div class="atlas-lanterns" aria-hidden="true">
+          <i style="--x:14%;--y:12%;--delay:-.6s"></i><i style="--x:18%;--y:9%;--delay:-1.8s"></i>
+          <i style="--x:38%;--y:12%;--delay:-2.4s"></i><i style="--x:38%;--y:20%;--delay:-.2s"></i>
+          <i style="--x:68%;--y:18%;--delay:-1.2s"></i><i style="--x:90%;--y:15%;--delay:-2.8s"></i>
+          <i style="--x:96%;--y:14%;--delay:-.9s"></i>
+        </div>
+        <nav class="atlas-pins" aria-label="全景中的地点">
+          <button class="atlas-pin" data-open="mountain" style="--x:11%;--y:44%"><i>01</i><span>九连山郊野</span></button>
+          <button class="atlas-pin" data-open="peach" style="--x:27%;--y:65%"><i>02</i><span>上坪桃源</span></button>
+          <button class="atlas-pin" data-open="song" style="--x:44%;--y:55%"><i>03</i><span>客家声腔</span></button>
+          <button class="atlas-pin" data-open="lantern" style="--x:58%;--y:60%"><i>04</i><span>忠信花灯</span></button>
+          <button class="atlas-pin" data-open="market" style="--x:72%;--y:66%"><i>05</i><span>元善滨河</span></button>
+          <button class="atlas-pin" data-open="newtown" style="--x:90%;--y:52%"><i>06</i><span>连平新城</span></button>
+        </nav>
+      </div>
+      <canvas class="atlas-fireworks" id="atlasFireworks" aria-hidden="true"></canvas>
+      <header class="atlas-heading">
+        <p>广 东 · 河 源 · 连 平</p>
+        <h1>连平山河</h1>
+        <span>移步游目 · 点景入画</span>
+      </header>
+      <div class="visit-count"><span>入画人次</span><b id="visitCount">0001</b></div>
+      <button class="atlas-music-toggle" id="homeMusicToggle" type="button" aria-label="关闭首页烟花音乐" title="关闭首页烟花音乐" aria-pressed="true"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">关闭音乐</span></button>
+    </div>
+    <p class="atlas-note">九连山下 · 客家古邑 · 由山野行至新城</p>
+    <nav class="atlas-journey" aria-label="进入连平场景">
+      <button data-open="mountain"><small>01</small>九连山郊野</button>
+      <button data-open="peach"><small>02</small>上坪桃源</button>
+      <button data-open="song"><small>03</small>客家声腔</button>
+      <button data-open="lantern"><small>04</small>忠信花灯</button>
+      <button data-open="market"><small>05</small>元善滨河</button>
+      <button data-open="newtown"><small>06</small>连平新城</button>
+    </nav>
+    <div class="atlas-footer">点击画中地点 · 入画后可行走、寻景与互动</div>
+  </section>
+
+  <section class="scene-view" id="sceneView" aria-label="连平场景" hidden>
+    <div class="scene-backdrop" id="sceneBackdrop" aria-hidden="true"></div>
+    <div class="scene-viewport" id="sceneViewport" tabindex="0" aria-label="长卷场景，可左右拖动或用方向键游览">
+      <div class="scene-world" id="sceneWorld">
+        <img class="scene-art" id="sceneArt" alt="" draggable="false">
+        <svg class="stream-flows" id="streamFlows" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="world-points" id="worldPoints"></div>
+        <div class="world-lights" id="worldLights" aria-hidden="true"></div>
+        <div class="scene-people" id="scenePeople" role="group" aria-label="桃小鹰角色，可点击参与场景互动"></div>
+      </div>
+      <canvas class="weather-canvas" id="weatherCanvas" aria-hidden="true"></canvas>
+      <div class="night-wash" aria-hidden="true"></div>
+      <div class="fog-layer" aria-hidden="true"></div>
+      <div class="water-shimmer" aria-hidden="true"></div>
+    </div>
+    <header class="scene-topline">
+      <button class="back-atlas" id="backAtlas" type="button" aria-label="返回全景">↶ <span>全景</span></button>
+      <button class="scene-music-toggle" id="sceneMusicToggle" type="button" aria-label="关闭场景背景音乐" title="关闭场景背景音乐" aria-pressed="true">♫</button>
+      <div class="scene-counter"><span>入画人次</span><b id="sceneVisitCount">0001</b></div>
+    </header>
+    <div class="scene-title" aria-live="polite">
+      <span id="sceneEyebrow">连平 · 九连山</span>
+      <h2 id="sceneTitle">九连山郊野</h2>
+    </div>
+    <button class="story-toggle" id="storyToggle" type="button" aria-expanded="false" aria-controls="sceneStory" title="打开画中记">▤</button>
+    <aside class="scene-story" id="sceneStory" hidden>
+      <button class="story-close" id="storyClose" type="button" aria-label="关闭画中记">×</button>
+      <p class="story-kicker" id="storyKicker"></p>
+      <h3 id="storyTitle"></h3>
+      <p id="storyCopy"></p>
+      <div class="story-extra" id="storyExtra"></div>
+      <a id="storySource" href="#" target="_blank" rel="noopener noreferrer" hidden>连平县政府资料 ↗</a>
+    </aside>
+    <p class="scene-hint" id="sceneHint" role="status" aria-live="polite">点击桃小鹰或画中地点互动 · 拖动画卷游览</p>
+    <nav class="scene-stops" id="sceneStops" aria-label="场景中的游览位置"></nav>
+    <nav class="scene-controls" aria-label="画卷控制">
+      <div class="walk-group">
+        <button id="walkLeft" type="button" title="向左行走" aria-label="向左行走">‹</button>
+        <button id="autoWalk" type="button" title="自动游览" aria-label="自动游览" aria-pressed="false">▶</button>
+        <button id="walkRight" type="button" title="向右行走" aria-label="向右行走">›</button>
+      </div>
+      <i class="control-divider" aria-hidden="true"></i>
+      <div class="scene-actions" id="sceneActions"></div>
+      <i class="control-divider" aria-hidden="true"></i>
+      <button class="scene-tool" id="nightToggle" type="button" aria-pressed="false" title="切换夜景"><span>☾</span>夜景</button>
+      <button class="scene-tool" id="rainToggle" type="button" aria-pressed="false" title="体验时雨"><span>☂</span>时雨</button>
+    </nav>
+    <nav class="corner-controls" aria-label="视图设置">
+      <button id="zoomToggle" type="button" aria-label="放大细节" title="放大细节" aria-pressed="false">⌕</button>
+      <button id="soundToggle" type="button" aria-label="开启流水声" title="开启流水声" aria-pressed="false">◖</button>
+      <button id="motionToggle" type="button" aria-label="暂停动画" title="暂停动画" aria-pressed="false">Ⅱ</button>
+      <button id="fullToggle" type="button" aria-label="全屏" title="全屏">⛶</button>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </section>
+  <audio id="backgroundMusic" src="assets/audio/homepage-background.mp3" preload="none" loop aria-label="连平场景背景音乐"></audio>
+  <audio id="fireworksMusic" src="assets/audio/homepage-fireworks.mp3" preload="none" loop aria-label="首页烟花音乐"></audio>
+</main>
+</body>
+</html>
